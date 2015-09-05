@@ -1,0 +1,29 @@
+
+// GET AS ARRAYS
+$student_result = Student::get_all();
+while($student = $database->fetch_array($student_result)){
+	echo $student['StudentPassword'] . "<br />";
+}
+
+// GET AS OBJECTS
+$students = Student::get_all();
+foreach($students as $student){
+	echo $student->full_name() . "<br />";
+}
+
+// INCLUDE A LAYOUT
+<?php include_template("nominees_table.php"); ?>
+<?php include_template("students_table.php"); ?>
+
+Nominee::reset_all_votes(10);
+
+$message = "student_id = " . $student_id . "<br />";
+$message .= "password = " . $password . "<br />";
+$message .= "first_name = " . $first_name . "<br />";
+$message .= "middle_name = " . $middle_name . "<br />";
+$message .= "last_name = " . $last_name . "<br />";
+$message .= "year_level = " . $year_level . "<br />";
+$message .= "section = " . $section . "<br />";
+$message .= "birth_year = " . $birth_year . "<br />";
+$message .= "birth_month = " . $birth_month . "<br />";
+$message .= "birth_day = " . $birth_day . "<br />";
